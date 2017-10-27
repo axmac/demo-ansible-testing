@@ -2,12 +2,14 @@
 - name: Bring up docker containers
   hosts: localhost
   gather_facts: false
+
   vars:
     inventory:
       - name: iptables_host_1
         image: "chrismeyers/centos7"
-    # Connecting to docker on windows, no TLS.
+    # Connection to docker on local Windows
     provision_docker_use_tls: no
+
   roles:
     - { role: provision_docker, provision_docker_inventory: "{{inventory}}" }
 
